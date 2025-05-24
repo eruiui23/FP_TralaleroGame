@@ -28,6 +28,7 @@ public class PlayerConteroller : MonoBehaviour
             }
         }
     }
+    [SerializeField]
     private bool _isMoving = false;
     public bool IsMoving
     {
@@ -52,6 +53,18 @@ public class PlayerConteroller : MonoBehaviour
             animator.SetBool(AnimationString.isRunning, value);
         }
     }
+    public bool _isFacingRight = true;
+    public bool IsFacingRight
+    {
+        get => _isFacingRight; private set
+        {
+            if (_isFacingRight != value)
+            {
+                transform.localScale *= new Vector2(-1, 1);
+            }
+            _isFacingRight = value;
+        }
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,13 +84,24 @@ public class PlayerConteroller : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveInput.x * currentSpeed, rb.linearVelocityY);
 
-        // animator.SetFloat(AnimationString.yVelocity, rb.linearVelocityY);
+        animator.SetFloat(AnimationString.yVelocity, rb.linearVelocityY);
+    }
+    private void setFacingDirection(Vector2 moveInput)
+    {
+        if (moveInput.x > 0 && !IsFacingRight)
+        {
+            IsFacingRight = true; //face right
+        }
+        else if (moveInput.x < 0 && IsFacingRight)
+        {
+            IsFacingRight = false; //face left
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
         IsMoving = moveInput != Vector2.zero; // ngecheck kalo playernya gerak artinya di set ke true, kalo playernya ga gerak, di set ke false
-        //setFacingDirection(moveInput);
+        setFacingDirection(moveInput);
     }
     public void OnRun(InputAction.CallbackContext context)
     {
