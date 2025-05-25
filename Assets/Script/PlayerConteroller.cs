@@ -1,15 +1,17 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))] // misal kita add script ini, nanti lgsg ngadain component lain di inspectornya
 public class PlayerConteroller : MonoBehaviour
 {
     
     Rigidbody2D rb;
     Animator animator;
     Vector2 moveInput;
+    TouchingDirection touchingDirection;
     public float walkSpeed = 5f;
     public float runSpeed = 8f;
+    public float jumpImpulse = 10f;
     public float currentSpeed
     {
         get
@@ -69,6 +71,7 @@ public class PlayerConteroller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        touchingDirection = GetComponent<TouchingDirection>();
     }
     void Start()
     {
@@ -84,7 +87,7 @@ public class PlayerConteroller : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveInput.x * currentSpeed, rb.linearVelocityY);
 
-        animator.SetFloat(AnimationString.yVelocity, rb.linearVelocityY);
+        animator.SetFloat(AnimationString.yVel, rb.linearVelocityY);
     }
     private void setFacingDirection(Vector2 moveInput)
     {
@@ -112,6 +115,15 @@ public class PlayerConteroller : MonoBehaviour
         else if (context.canceled)
         {
             IsRunning = false;
+        }
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started && touchingDirection.IsGrounded) //&& touchingDirection.IsGrounded
+        {
+            animator.SetTrigger(AnimationString.jump);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX + 100, jumpImpulse);
+
         }
     }
 }
