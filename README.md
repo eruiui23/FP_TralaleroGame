@@ -14,8 +14,8 @@ Tralalero adalah game platformer 2D klasik. Pemain mengontrol karakter utama unt
 
 ### Fitur Utama Saat Ini:
 - ✅ Mekanika Platformer 2D (Lari, Lompat, Jatuh)
-- ✅ Sistem Kollisi Level
-- ✅ Sistem Kesehatan (Health System)
+- ✅ Tile Collisions
+- ✅ Retry After Death
 
 ### Rencana untuk Versi Kompetisi:
 - ⚙️ Menu Pengaturan (Settings)
