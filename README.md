@@ -1,20 +1,10 @@
-# 🎮 Tralalero Timer
+# 🎮 Tralalero Game
 
-**Tralalero Timer** adalah aplikasi **Pomodoro Timer** yang dikombinasikan dengan **game platformer** sederhana untuk membantu pengguna mengelola waktu dan melepas stres secara produktif.
+**Tralalero Game** adalah game platformer 2D sederhana yang menampilkan karakter hiu berjalan. Proyek ini dikembangkan sebagai bagian dari tugas *Proyek Kecil - Pemrograman Berorientasi Objek* di Institut Teknologi Sepuluh Nopember.
 
-Proyek ini dikembangkan sebagai bagian dari tugas *Proyek Kecil - Pemrograman Berorientasi Objek* di Institut Teknologi Sepuluh Nopember.
+## 🕹️ Deskripsi Game
 
-## 🧠 Latar Belakang
-
-Di dunia yang penuh tekanan, banyak orang membutuhkan cara untuk tetap produktif sekaligus menjaga kesehatan mental. Berdasarkan konsep **Pomodoro Technique**, aplikasi ini bertujuan untuk:
-
-- Membantu manajemen waktu kerja dan istirahat
-- Memberikan hiburan berupa game setelah sesi kerja
-- Meningkatkan motivasi pengguna dengan sistem reward berupa game
-
-## 🕹️ Deskripsi Aplikasi
-
-Aplikasi ini adalah timer berbasis **Pomodoro** dengan desain bertema game. Setelah timer selesai, pengguna bisa memainkan **game platformer mini** sebagai reward. Tampilan antarmuka dibuat semirip mungkin dengan game agar kegiatan bekerja terasa menyenangkan.
+Tralalero adalah game platformer 2D klasik. Pemain mengontrol karakter utama untuk berlari, melompat, dan menavigasi level yang penuh dengan platform dan rintangan.
 
 ### Platform
 - Dibuat dengan **Windows Forms (.NET)**
@@ -22,17 +12,15 @@ Aplikasi ini adalah timer berbasis **Pomodoro** dengan desain bertema game. Sete
 
 ## ✨ Fitur-Fitur
 
-### Untuk Versi Semester Ini:
-- ✅ Pomodoro Timer
-- ✅ Start & Finish system
-- ✅ Alarm
-- ✅ Mini game platformer
-- ✅ Health system
+### Fitur Utama Saat Ini:
+- ✅ Mekanika Platformer 2D (Lari, Lompat, Jatuh)
+- ✅ Sistem Kollisi Level
+- ✅ Sistem Kesehatan (Health System)
 
-### Untuk Versi Kompetisi:
-- ⚙️ Pengaturan (Settings)
-- ❤️ HP Bar
-- 🖼️ Background & Visual Details
+### Rencana untuk Versi Kompetisi:
+- ⚙️ Menu Pengaturan (Settings)
+- ❤️ Tampilan HP Bar
+- 🖼️ Latar Belakang & Detail Visual yang Lebih Baik
 
 ## 📐 Desain Kelas (Class Diagram)
 > (Akan ditambahkan di versi berikutnya)
@@ -41,8 +29,8 @@ Aplikasi ini adalah timer berbasis **Pomodoro** dengan desain bertema game. Sete
 
 | Nama | NRP | Tugas |
 |------|-----|-------|
-| Kagendra Amadeo Reynara Pratisa | 5053241015 | Ketua - Timer & UI |
-| Kadek Angga Wistara | 5053241025 | Anggota - Game mechanics |
+| Kagendra Amadeo Reynara Pratisa | 5053241015 | Ketua - Sistem Inti & UI |
+| Kadek Angga Wistara | 5053241025 | Anggota - Mekanika Game |
 
 ## 🏆 Kompetisi
 
@@ -58,16 +46,15 @@ Kami berencana mengikuti **GMTK Game Jam 2025** pada 31 Juli 2025 yang diselengg
 
 ### Langkah-Langkah
 
-1. Clone repositori ini:
-   ```bash
-   git clone https://github.com/eruiui23/FP_TralaleroGame.git
-   cd tralalero-timer
-2. Buka solusi .sln di Visual Studio
-3. Pastikan target project adalah Windows Forms App
-4. Klik tombol Start untuk menjalankan aplikasi
+1.  Clone repositori ini:
+    ```bash
+    git clone [https://github.com/eruiui23/FP_TralaleroGame.git](https://github.com/eruiui23/FP_TralaleroGame.git)
+    cd FP_TralaleroGame
+    ```
+2.  Buka solusi `.sln` di Visual Studio.
+3.  Pastikan target proyek adalah Windows Forms App.
+4.  Klik tombol "Start" untuk menjalankan aplikasi.
 
 ## 📄 Lisensi
 
-Proyek ini dikembangkan untuk keperluan akademik dan kompetisi. Tidak menggunakan AI untuk gameplay atau aset.
-
----
+Proyek ini dikembangkan untuk keperluan akademik dan kompetisi. Pengembangan kode untuk proyek ini dibantu oleh teknologi AI.
