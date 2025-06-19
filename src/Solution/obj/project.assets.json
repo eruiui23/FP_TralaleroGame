@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Solution.csproj",
-      "projectName": "Solution",
-      "projectPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Solution.csproj",
+      "projectUniqueName": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
+      "projectName": "TralalaGame",
+      "projectPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
       "packagesPath": "C:\\Users\\Angga\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\obj\\",
       "projectStyle": "PackageReference",

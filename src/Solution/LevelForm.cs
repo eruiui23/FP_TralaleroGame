@@ -1,29 +1,90 @@
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
-namespace SpriteAnimation
+namespace TralalaGame
 {
     public class LevelForm : Form
     {
         // --- Form Constants ---
         private const int PlayerInitPosX = 100;
-        private const int PlayerInitPosY = 400; // Adjusted starting Y to be on the "ground"
+        private const int PlayerInitPosY = 360;
 
         // --- Class Variables ---
         private System.Windows.Forms.Timer gameTimer;
         private Label _framelabel;
         private long _totalFrameCount;
         private Tralala _tralala;
+        private List<Tile> _tiles;
+
+        // --- NEW: Input state tracking belongs to the form ---
+        private bool _leftPressed = false;
+        private bool _rightPressed = false;
+        private bool _jumpPressed = false;
+        private bool _shiftPressed = false;
 
         public LevelForm()
         {
-            // --- Form Initialization ---
             InitializeLevel();
+            InitializeTiles();
             InitializeCharacter();
             InitializeTimer();
             InitializeInput(); // Set up keyboard listeners
+            InitializeUI();
+        }
 
-            // --- UI Elements ---
+        private void InitializeLevel()
+        {
+            this.Text = "Tralala Test Drive (Optimized)";
+            this.Size = new Size(800, 600);
+            this.BackColor = Color.LightSkyBlue;
+            this.DoubleBuffered = true;
+        }
+
+        private void InitializeTiles()
+        {
+            _tiles = new List<Tile>();
+
+            // Add a few platforms
+            var bottom1 = new Tile(new Point(1, 500), new Size(256, 64));
+            var bottom2 = new Tile(new Point(384, 500), new Size(840, 64));
+
+
+            _tiles.Add(bottom1);
+            _tiles.Add(bottom2);
+
+
+            // Add the tile PictureBoxes to the form's controls
+            foreach (var tile in _tiles)
+            {
+                this.Controls.Add(tile.Box);
+            }
+        }
+
+        private void InitializeCharacter()
+        {
+            _tralala = new Tralala(new Point(PlayerInitPosX, PlayerInitPosY), _tiles, this.ClientSize.Width, this.ClientSize.Height);
+            this.Controls.Add(_tralala.GetPictureBox());
+        }
+
+        private void InitializeTimer()
+        {
+            gameTimer = new System.Windows.Forms.Timer
+            {
+                Interval = 50  // Adjusted for a smoother ~50 FPS update rate
+            };
+            gameTimer.Tick += GameTimer_Tick;
+            gameTimer.Start();
+        }
+
+        private void InitializeInput()
+        {
+            this.KeyDown += LevelForm_KeyDown;
+            this.KeyUp += LevelForm_KeyUp;
+        }
+
+        private void InitializeUI()
+        {
             _framelabel = new Label
             {
                 Text = "Total frames: 0",
@@ -35,91 +96,41 @@ namespace SpriteAnimation
             this.Controls.Add(_framelabel);
         }
 
-        private void InitializeLevel()
-        {
-            this.Text = "Tralala Test Drive";
-            this.Size = new Size(800, 600);
-            this.BackColor = Color.LightSkyBlue;
-
-            // *** IMPORTANT: This prevents flickering and makes animation smooth ***
-            this.DoubleBuffered = true;
-        }
-
-        private void InitializeCharacter()
-        {
-            // Create the player character at its starting position
-            _tralala = new Tralala(new Point(PlayerInitPosX, PlayerInitPosY));
-
-            // *** IMPORTANT: This adds the character to the screen so it's visible ***
-            this.Controls.Add(_tralala.GetPictureBox());
-        }
-
-        private void InitializeTimer()
-        {
-            gameTimer = new System.Windows.Forms.Timer();
-            // Set the interval to ~50 times per second for smooth updates
-            gameTimer.Interval = 50;
-            gameTimer.Tick += GameTimer_Tick;
-            gameTimer.Start();
-        }
-
-        private void InitializeInput()
-        {
-            // Listen for key presses and releases
-            this.KeyDown += LevelForm_KeyDown;
-            this.KeyUp += LevelForm_KeyUp;
-        }
-
-        // --- Game Loop ---
-        // This method is the "heartbeat" of your game. It runs on every timer tick.
+        // --- Game Loop (Now much cleaner!) ---
         private void GameTimer_Tick(object sender, System.EventArgs e)
         {
-            // Tell the character to update its physics and animation
+            // 1. Pass the current input state to the player object.
+            _tralala.HandleInput(_leftPressed, _rightPressed, _jumpPressed, _shiftPressed);
+
+            // 2. Tell the character to update its physics and animation.
             _tralala.Update();
 
-            // Update your frame counter label
+            // 3. Reset the jump flag after it's been processed to prevent continuous jumping.
+            _jumpPressed = false;
+
+            // 4. Update UI
             UpdateFrameCount();
         }
 
         // --- Input Handling ---
         private void LevelForm_KeyDown(object sender, KeyEventArgs e)
         {
-            // Tell the character if the shift key is being held down
-            _tralala.SetRunning(e.Shift);
-
-            // Tell the character to START moving
-            if (e.KeyCode == Keys.A)
-            {
-                _tralala.StartMove('L');
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                _tralala.StartMove('R');
-            }
-
-            // Tell the character to JUMP
+            if (e.KeyCode == Keys.A) _leftPressed = true;
+            if (e.KeyCode == Keys.D) _rightPressed = true;
             if (e.KeyCode == Keys.Space)
             {
-                _tralala.Jump();
-                // This prevents the annoying "ding" sound when pressing space
-                e.SuppressKeyPress = true;
+                _jumpPressed = true;
+                e.SuppressKeyPress = true; // Prevent the default space bar action
             }
+            if (e.KeyCode == Keys.ShiftKey) _shiftPressed = true;
         }
 
         private void LevelForm_KeyUp(object sender, KeyEventArgs e)
         {
-            // Update the running state in case Shift was the key that was released
-            _tralala.SetRunning(e.Shift);
-
-            // Tell the character to STOP moving
-            if (e.KeyCode == Keys.A)
-            {
-                _tralala.StopMove('L');
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                _tralala.StopMove('R');
-            }
+            if (e.KeyCode == Keys.A) _leftPressed = false;
+            if (e.KeyCode == Keys.D) _rightPressed = false;
+            if (e.KeyCode == Keys.ShiftKey) _shiftPressed = false;
+            // No need to handle KeyUp for Jump, as it's a single action.
         }
 
         private void UpdateFrameCount()

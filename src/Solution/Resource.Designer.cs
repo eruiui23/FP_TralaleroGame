@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Solution {
+namespace TralalaGame {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Solution {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Solution.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TralalaGame.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,16 @@ namespace Solution {
         internal static System.Drawing.Bitmap Assets {
             get {
                 object obj = ResourceManager.GetObject("Assets", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sand {
+            get {
+                object obj = ResourceManager.GetObject("Sand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
