@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj": {}
+    "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj": {
+    "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
+        "projectUniqueName": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
         "projectName": "TralalaGame",
-        "projectPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
-        "packagesPath": "C:\\Users\\Angga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\obj\\",
+        "projectPath": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
+        "packagesPath": "C:\\Users\\kagen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Angga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kagen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0-windows7.0": {
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
