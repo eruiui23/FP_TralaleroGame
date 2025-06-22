@@ -9,6 +9,8 @@ namespace TralalaGame
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            Application.Run(new MainMenuForm());
+
             Application.Run(new LevelForm());
         }
     }
