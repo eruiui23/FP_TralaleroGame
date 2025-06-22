@@ -23,13 +23,18 @@ namespace TralalaGame
         {
             this.Hide();
             LevelForm levelForm = new LevelForm();
-            levelForm.FormClosed += (s, args) => this.Close(); // Menutup menu saat game ditutup
+            levelForm.FormClosed += (s, args) => this.Show(); // Menutup menu saat game ditutup
             levelForm.Show();
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnTimer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

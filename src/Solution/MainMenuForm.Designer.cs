@@ -6,8 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
+/// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -26,40 +25,57 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        //private void InitializeComponent()
-        //{
-        //    this.components = new System.ComponentModel.Container();
-        //    this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        //    this.ClientSize = new System.Drawing.Size(800, 450);
-        //    this.Text = "MainMenuForm";
-        //}
         private System.Windows.Forms.Button btnMulai;
         private System.Windows.Forms.Button btnKeluar;
+        private System.Windows.Forms.Button btnTimer;
 
         private void InitializeComponent()
         {
-            this.btnMulai = new System.Windows.Forms.Button();
-            this.btnKeluar = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
+            btnMulai = new Button();
+            btnKeluar = new Button();
+            btnTimer = new Button();
+            SuspendLayout();
+            // 
             // btnMulai
-            this.btnMulai.Location = new System.Drawing.Point(100, 50);
-            this.btnMulai.Size = new System.Drawing.Size(100, 30);
-            this.btnMulai.Text = "Mulai";
-            this.btnMulai.Click += new System.EventHandler(this.btnMulai_Click);
-
+            // 
+            btnMulai.Image = (Image)resources.GetObject("btnMulai.Image");
+            btnMulai.Location = new Point(116, 255);
+            btnMulai.Name = "btnMulai";
+            btnMulai.Size = new Size(180, 70);
+            btnMulai.TabIndex = 0;
+            btnMulai.UseVisualStyleBackColor = false;
+            btnMulai.Click += btnMulai_Click;
+            // 
             // btnKeluar
-            this.btnKeluar.Location = new System.Drawing.Point(100, 100);
-            this.btnKeluar.Size = new System.Drawing.Size(100, 30);
-            this.btnKeluar.Text = "Keluar";
-            this.btnKeluar.Click += new System.EventHandler(this.btnKeluar_Click);
-
+            // 
+            btnKeluar.Image = (Image)resources.GetObject("btnKeluar.Image");
+            btnKeluar.Location = new Point(116, 405);
+            btnKeluar.Name = "btnKeluar";
+            btnKeluar.Size = new Size(180, 70);
+            btnKeluar.TabIndex = 1;
+            btnKeluar.Click += btnKeluar_Click;
+            // 
+            // btnTimer
+            // 
+            btnTimer.Image = (Image)resources.GetObject("btnTimer.Image");
+            btnTimer.Location = new Point(116, 331);
+            btnTimer.Name = "btnTimer";
+            btnTimer.Size = new Size(180, 70);
+            btnTimer.TabIndex = 2;
+            btnTimer.Click += btnTimer_Click;
+            // 
             // MainMenuForm
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.btnMulai);
-            this.Controls.Add(this.btnKeluar);
-            this.Text = "Menu Utama";
-            this.ResumeLayout(false);
+            // 
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(800, 600);
+            Controls.Add(btnMulai);
+            Controls.Add(btnKeluar);
+            Controls.Add(btnTimer);
+            Name = "MainMenuForm";
+            Text = "Menu Utama";
+            ResumeLayout(false);
         }
 
 
