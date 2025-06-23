@@ -7,8 +7,23 @@
     <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
   <ItemGroup>
+    <None Remove="Resources\5x7_mt_pixel\5x7 MT Pixel.ttf" />
+    <None Remove="Resources\Assets.png" />
+    <None Remove="Resources\BG.jpg" />
+    <None Remove="Resources\coin.png" />
+    <None Remove="Resources\ForRial.png" />
+    <None Remove="Resources\tungtungtung-Sheet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\5x7 MT Pixel.ttf" />
     <EmbeddedResource Include="Resources\Assets.png" />
+    <EmbeddedResource Include="Resources\BG.jpg" />
+    <EmbeddedResource Include="Resources\coin.png" />
+    <EmbeddedResource Include="Resources\ForRial.png" />
+    <EmbeddedResource Include="Resources\tungtungtung-Sheet.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resource.Designer.cs">
@@ -31,6 +46,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\5x7_mt_pixel\" />
   </ItemGroup>
 
 

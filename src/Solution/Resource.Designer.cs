@@ -63,9 +63,29 @@ namespace TralalaGame {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Assets {
+        internal static System.Drawing.Bitmap Asset {
             get {
-                object obj = ResourceManager.GetObject("Assets", resourceCulture);
+                object obj = ResourceManager.GetObject("Asset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BG {
+            get {
+                object obj = ResourceManager.GetObject("BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +96,16 @@ namespace TralalaGame {
         internal static System.Drawing.Bitmap Sand {
             get {
                 object obj = ResourceManager.GetObject("Sand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tung {
+            get {
+                object obj = ResourceManager.GetObject("Tung", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

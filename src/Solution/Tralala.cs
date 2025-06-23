@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace TralalaGame
 {
     // Your PlayerState enum can remain the same
-    public enum PlayerState
+    public enum PlayerState 
     {
         FallRight = 0,
         IdleRight = 1,
@@ -21,12 +21,11 @@ namespace TralalaGame
         JumpLeft = 9
     }
 
-    public class Tralala
+    public class Tralala : GameObject, ICollidable
     {
         // --- Sprite & Animation Configuration ---
-        private const int PWidth = 64;
-        private const int PHeight = 64;
-        private PictureBox _playerPictureBox;
+        private const int PWidth = 58;
+        private const int PHeight = 40;
         private Image _spriteSheet;
         private Dictionary<PlayerState, int> _animationFrames;
         private int _currentFrame;
@@ -47,14 +46,21 @@ namespace TralalaGame
         // --- Physics Constants ---
         private const int WalkSpeed = 6;
         private const int RunSpeed = 10;
-        private const int JumpSpeed = 24;
+        private const int StraightJumpSpeed = 25;
+        private const int RunningJumpSpeed = 22;
         private const int Gravity = 2;
         private int _groundLevelY;
-        public Tralala(Point startPosition, List<Tile> tiles, int levelWidth, int levelHeight)
+
+        public Rectangle Bounds => this.Box.Bounds;
+        public Tralala(Point startPosition, List<Tile> tiles, int levelWidth, int levelHeight) : base(startPosition, new Size(PWidth, PHeight))
         {
-            _spriteSheet = Image.FromStream(
-    Assembly.GetExecutingAssembly()
-    .GetManifestResourceStream("TralalaGame.Resources.Assets.png"));
+            var allResourceNames = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            foreach (var name in allResourceNames)
+            {
+                // This will print every available resource name to the "Output" window in Visual Studio
+                System.Diagnostics.Debug.WriteLine(name);
+            }
+            _spriteSheet = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.Assets.png"));
             InitializeAnimationData();
 
             _levelTiles = tiles; // NEW: Store the tiles
@@ -63,19 +69,35 @@ namespace TralalaGame
             _velocity = Point.Empty;
             _groundLevelY = 600; // Keep the initial ground level
 
-            _playerPictureBox = new PictureBox
-            {
-                Size = new Size(PWidth, PHeight),
-                Location = startPosition,
-                BackColor = Color.Transparent,
-            };
-            _playerPictureBox.Paint += PlayerPictureBox_Paint;
+            this.Box.Paint += PlayerPictureBox_Paint;
             _levelWidth = levelWidth;
             _levelHeight = levelHeight;
             _startPosition = startPosition;
         }
 
-        public PictureBox GetPictureBox() => _playerPictureBox;
+        public PictureBox GetPictureBox() => this.Box;
+
+        public override void Draw(Graphics g, Point cameraPosition)
+        {
+            // Calculate the player's position on the screen
+            int screenX = this.Position.X - cameraPosition.X;
+            int screenY = this.Position.Y - cameraPosition.Y;
+
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            Rectangle sourceRect = new Rectangle(
+                _currentFrame * PWidth,
+                (int)_animationState * PHeight,
+                PWidth,
+                PHeight
+            );
+            // Draw directly onto the form's graphics at the calculated screen position
+            g.DrawImage(
+                _spriteSheet,
+                new Rectangle(screenX, screenY, PWidth, PHeight),
+                sourceRect,
+                GraphicsUnit.Pixel
+            );
+        }
 
         // --- NEW: A single method to handle all input states ---
         // This is called by the form on every tick BEFORE Update()
@@ -92,18 +114,30 @@ namespace TralalaGame
                 _isMovingRight = false;
             }
 
+            // --- MODIFIED JUMP LOGIC ---
             if (jump && !_isJumping)
             {
                 _isJumping = true;
-                _velocity.Y = -JumpSpeed;
+
+                // Check if the player is moving horizontally at the moment of the jump
+                if (_isMovingLeft || _isMovingRight)
+                {
+                    // If they are moving, perform a running jump (lower)
+                    _velocity.Y = -RunningJumpSpeed;
+                }
+                else
+                {
+                    // If they are standing still, perform a standing jump (higher)
+                    _velocity.Y = -StraightJumpSpeed;
+                }
             }
         }
 
         // In Tralala.cs
 
-        public void Update()
+        public override void Update()
         {
-            // 1. Apply Horizontal Velocity from input
+            // Apply Horizontal Velocity from input
             _velocity.X = 0;
             if (_isMovingLeft)
             {
@@ -114,82 +148,98 @@ namespace TralalaGame
                 _velocity.X = _isRunning ? RunSpeed : WalkSpeed;
             }
 
-            // 2. Apply Gravity
+            // Apply Gravity
             _velocity.Y += Gravity;
 
-            // --- SEPARATE AXIS COLLISION LOGIC ---
+            // Store original position for collision testing
+            Point originalPosition = this.Box.Location;
 
-            // 3. Handle Horizontal Movement and Collision
-            _playerPictureBox.Left += _velocity.X;
-
-            foreach (var tile in _levelTiles)
-            {
-                Rectangle playerBounds = _playerPictureBox.Bounds;
-                Rectangle tileBounds = tile.Bounds;
-
-                if (playerBounds.IntersectsWith(tileBounds))
-                {
-                    if (_velocity.X > 0) { _playerPictureBox.Left = tileBounds.Left - playerBounds.Width; }
-                    else if (_velocity.X < 0) { _playerPictureBox.Left = tileBounds.Right; }
-                    break;
-                }
-            }
-            if (_playerPictureBox.Left < 0)
-            {
-                _playerPictureBox.Left = 0;
-            }
-            if (_playerPictureBox.Right > _levelWidth)
-            {
-                // Position the character so its right edge is at the boundary
-                _playerPictureBox.Left = _levelWidth - _playerPictureBox.Width;
-            }
-            if (_playerPictureBox.Bottom > _levelHeight)
-            {
-                _playerPictureBox.Top = _levelHeight;
-            }
-
-            // 4. Handle Vertical Movement and Collision
-            _playerPictureBox.Top += _velocity.Y;
+            // Apply vertical movement first
+            this.Box.Top += _velocity.Y;
             bool onGround = false;
+            bool hitCeiling = false;
 
+            // Check vertical collisions
             foreach (var tile in _levelTiles)
             {
-                Rectangle playerBounds = _playerPictureBox.Bounds;
+                Rectangle playerBounds = this.Box.Bounds;
                 Rectangle tileBounds = tile.Bounds;
 
                 if (playerBounds.IntersectsWith(tileBounds))
                 {
-                    // This prevents the "floating" bug when sliding against a wall.
-                    if (_velocity.Y > 0 && (_playerPictureBox.Bounds.Bottom - _velocity.Y) <= tileBounds.Top)
+                    // Check if we're hitting from below (ceiling collision)
+                    if (_velocity.Y < 0 && originalPosition.Y >= tileBounds.Bottom)
                     {
-                        _playerPictureBox.Top = (tileBounds.Top)- playerBounds.Height;
+                        this.Box.Top = tileBounds.Bottom;
+                        _velocity.Y = 0;
+                        hitCeiling = true;
+                        break;
+                    }
+                    // Check if we're landing on top of a tile
+                    else if (_velocity.Y > 0 && (originalPosition.Y + this.Box.Height) <= tileBounds.Top)
+                    {
+                        this.Box.Top = tileBounds.Top - this.Box.Height;
                         _velocity.Y = 0;
                         _isJumping = false;
                         onGround = true;
                         break;
                     }
-                    // Colliding from the bottom (hitting your head)
-                    else if (_velocity.Y < 0)
+                }
+            }
+
+            // Only apply horizontal movement if we didn't hit a ceiling
+            if (!hitCeiling)
+            {
+                this.Box.Left += _velocity.X;
+
+                // Check horizontal collisions
+                foreach (var tile in _levelTiles)
+                {
+                    Rectangle playerBounds = this.Box.Bounds;
+                    Rectangle tileBounds = tile.Bounds;
+
+                    if (playerBounds.IntersectsWith(tileBounds))
                     {
-                        _playerPictureBox.Top = tileBounds.Bottom;
-                        _velocity.Y = 0;
-                        break;
+                        // Only handle side collisions if we're not hitting from above/below
+                        if (originalPosition.Y + this.Box.Height > tileBounds.Top &&
+                            originalPosition.Y < tileBounds.Bottom)
+                        {
+                            if (_velocity.X > 0)
+                            {
+                                this.Box.Left = tileBounds.Left - this.Box.Width;
+                            }
+                            else if (_velocity.X < 0)
+                            {
+                                this.Box.Left = tileBounds.Right;
+                            }
+                            _velocity.X = 0;
+                            break;
+                        }
                     }
                 }
             }
 
-            // 5. Fallback to original ground level
-            if (_playerPictureBox.Bottom > _levelHeight)
+            // Level boundaries
+            if (this.Box.Left < 0) { this.Box.Left = 0; }
+            if (this.Box.Right > _levelWidth) { this.Box.Left = _levelWidth - this.Box.Width; }
+            if (this.Box.Bottom > _levelHeight)
             {
-                // Reset the character's location to its starting point
-                _playerPictureBox.Location = _startPosition;
-
-                // Reset velocity to stop them from instantly falling again
-                _velocity = Point.Empty;
+                Reset();
             }
 
-            // 6. Update Animation
             UpdateAnimation(onGround);
+        }
+
+        public void Reset()
+        {
+            // Reset the character's location to its starting point
+            this.Box.Location = _startPosition;
+
+            // Reset velocity to stop them from instantly falling again
+            _velocity = Point.Empty;
+            _isJumping = false;
+            _animationState = PlayerState.IdleRight;
+            _facingDirection = 'R';
         }
         private void UpdateAnimation(bool onGround)
         {
@@ -235,7 +285,7 @@ namespace TralalaGame
             int totalFrames = _animationFrames[_animationState];
             _currentFrame = (_currentFrame + 1) % totalFrames;
 
-            _playerPictureBox.Invalidate();
+            this.Box.Invalidate();
         }
 
         // The InitializeAnimationData and PlayerPictureBox_Paint methods remain unchanged.

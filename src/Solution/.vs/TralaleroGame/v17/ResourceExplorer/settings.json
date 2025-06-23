@@ -1,1 +1,16 @@
-{"ShowEmptyProjects":false,"CustomColumnOrderings":{},"ShowValidationErrors":true,"SelectedResourceGroupsByProjectFilePath":{"C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj":["C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Resource.resx"]},"VisibleColumnKeys":["name","neutral-value"]}
+{
+  "ShowEmptyProjects": false,
+  "SelectedGroups": [],
+  "ExpandedProjects": [],
+  "EnableSpellChecker": true,
+  "ColumnOrder": [
+    "name",
+    "type",
+    "neutral-value",
+    "neutral-comment"
+  ],
+  "VisibleColumnKeys": [
+    "name",
+    "neutral-value"
+  ]
+}

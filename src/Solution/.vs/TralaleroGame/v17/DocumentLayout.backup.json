@@ -1,30 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\",
+  "WorkspaceRootPath": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\kagen\\hackerman\\mizore\\gamedev\\fp_tralalerogame\\src\\solution\\levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\kagen\\hackerman\\mizore\\gamedev\\fp_tralalerogame\\src\\solution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\textfont.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:textfont.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\kagen\\hackerman\\mizore\\gamedev\\fp_tralalerogame\\src\\solution\\resource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\tungtung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:tungtung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\resource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
       "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:resource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\kagen\\hackerman\\mizore\\gamedev\\fp_tralalerogame\\src\\solution\\tralala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\tralalagame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:tralalagame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\tralala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:tralala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\kagen\\hackerman\\mizore\\gamedev\\fp_tralalerogame\\src\\solution\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\collectibles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:collectibles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\icollidable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:icollidable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|c:\\users\\angga\\onedrive\\dokumen\\its\\sem_2\\pbo\\fp\\fp_tralalerogame\\src\\solution\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{522C10EE-23D5-504B-783B-80941FD4BE57}|TralalaGame.csproj|solutionrelative:levelform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,23 +62,127 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TralalaGame",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
+              "RelativeDocumentMoniker": "TralalaGame.csproj",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
+              "RelativeToolTip": "TralalaGame.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-23T19:32:07.928Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TungTung.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TungTung.cs",
+              "RelativeDocumentMoniker": "TungTung.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TungTung.cs",
+              "RelativeToolTip": "TungTung.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowC0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T17:20:48.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Collectibles.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Collectibles.cs",
+              "RelativeDocumentMoniker": "Collectibles.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Collectibles.cs",
+              "RelativeToolTip": "Collectibles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T17:13:22.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Tralala.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Tralala.cs",
+              "RelativeDocumentMoniker": "Tralala.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Tralala.cs",
+              "RelativeToolTip": "Tralala.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T16:25:14.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LevelForm.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
+              "RelativeDocumentMoniker": "LevelForm.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
+              "RelativeToolTip": "LevelForm.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAIwNoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T16:36:12.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T18:34:54.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ICollidable.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\ICollidable.cs",
+              "RelativeDocumentMoniker": "ICollidable.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\ICollidable.cs",
+              "RelativeToolTip": "ICollidable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T13:37:15.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Tile.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Tile.cs",
+              "RelativeDocumentMoniker": "Tile.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Tile.cs",
+              "RelativeToolTip": "Tile.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA4wDoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T12:23:51.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Resource.resx",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Resource.resx",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Resource.resx",
               "RelativeDocumentMoniker": "Resource.resx",
-              "ToolTip": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Resource.resx",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Resource.resx",
               "RelativeToolTip": "Resource.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2025-06-18T14:45:26.236Z",
@@ -58,63 +190,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Tile.cs",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Tile.cs",
-              "RelativeDocumentMoniker": "Tile.cs",
-              "ToolTip": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Tile.cs",
-              "RelativeToolTip": "Tile.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowCEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T12:23:51.346Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
+              "Title": "TextFont.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TextFont.cs",
+              "RelativeDocumentMoniker": "TextFont.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TextFont.cs",
+              "RelativeToolTip": "TextFont.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T18:34:54.198Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LevelForm.cs",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
-              "RelativeDocumentMoniker": "LevelForm.cs",
-              "ToolTip": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
-              "RelativeToolTip": "LevelForm.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwBkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T16:36:12.959Z",
+              "WhenOpened": "2025-06-23T19:33:26.356Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Tralala.cs",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Tralala.cs",
-              "RelativeDocumentMoniker": "Tralala.cs",
-              "ToolTip": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\Tralala.cs",
-              "RelativeToolTip": "Tralala.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwB4AAAA+AAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Enemy.cs",
+              "RelativeDocumentMoniker": "Enemy.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Enemy.cs",
+              "RelativeToolTip": "Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T16:25:14.141Z"
+              "WhenOpened": "2025-06-22T17:20:20.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "GameObject.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\GameObject.cs",
+              "RelativeDocumentMoniker": "GameObject.cs",
+              "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\GameObject.cs",
+              "RelativeToolTip": "GameObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T13:38:07.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "LevelForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\kagen\\hackerman\\mizore\\Gamedev\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
+              "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs",
               "RelativeDocumentMoniker": "LevelForm.cs",
               "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs [Design]",
+              "RelativeToolTip": "LevelForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T12:33:18.912Z"
+              "WhenOpened": "2025-06-18T12:33:18.912Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
