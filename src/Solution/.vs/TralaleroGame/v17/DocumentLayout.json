@@ -75,15 +75,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "TralalaGame",
+              "Title": "TralalaGame.csproj",
               "DocumentMoniker": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
               "RelativeDocumentMoniker": "TralalaGame.csproj",
               "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\TralalaGame.csproj",
               "RelativeToolTip": "TralalaGame.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-06-23T19:32:07.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T19:32:07.928Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "TungTung.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowC0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T17:20:48.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T17:20:48.692Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "RelativeToolTip": "Collectibles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T17:13:22.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T17:13:22.936Z"
             },
             {
               "$type": "Document",
@@ -121,8 +118,7 @@
               "RelativeToolTip": "Tralala.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T16:25:14.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-08T16:25:14.141Z"
             },
             {
               "$type": "Document",
@@ -145,7 +141,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T18:34:54.198Z",
               "EditorCaption": ""
@@ -160,8 +156,7 @@
               "RelativeToolTip": "ICollidable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T13:37:15.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T13:37:15.34Z"
             },
             {
               "$type": "Document",
@@ -173,8 +168,7 @@
               "RelativeToolTip": "Tile.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA4wDoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T12:23:51.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T12:23:51.346Z"
             },
             {
               "$type": "Document",
@@ -185,8 +179,7 @@
               "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\Resource.resx",
               "RelativeToolTip": "Resource.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-06-18T14:45:26.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T14:45:26.236Z"
             },
             {
               "$type": "Document",
@@ -198,8 +191,7 @@
               "RelativeToolTip": "TextFont.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T19:33:26.356Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T19:33:26.356Z"
             },
             {
               "$type": "Document",
@@ -211,8 +203,7 @@
               "RelativeToolTip": "Enemy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T17:20:20.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T17:20:20.023Z"
             },
             {
               "$type": "Document",
@@ -224,8 +215,7 @@
               "RelativeToolTip": "GameObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T13:38:07.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T13:38:07.013Z"
             },
             {
               "$type": "Document",
@@ -236,8 +226,7 @@
               "ToolTip": "C:\\Users\\Angga\\OneDrive\\Dokumen\\ITS\\Sem_2\\PBO\\FP\\FP_TralaleroGame\\src\\Solution\\LevelForm.cs [Design]",
               "RelativeToolTip": "LevelForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T12:33:18.912Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-18T12:33:18.912Z"
             }
           ]
         }
