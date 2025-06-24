@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TralalaGame
 {
+    //Kalau mau nambah font
     public class TextFont : Label
     {
         public TextFont() { }

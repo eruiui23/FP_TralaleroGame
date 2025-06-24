@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace TralalaGame
 {
-    // Your PlayerState enum can remain the same
+    // PlayerState enum buat animasi sesuai spritesheet
     public enum PlayerState 
     {
         FallRight = 0,
@@ -23,7 +23,7 @@ namespace TralalaGame
 
     public class Tralala : GameObject, ICollidable
     {
-        // --- Sprite & Animation Configuration ---
+        // --- Sprite & Animation ---
         private const int PWidth = 58;
         private const int PHeight = 40;
         private Image _spriteSheet;
@@ -32,7 +32,7 @@ namespace TralalaGame
         private PlayerState _animationState;
         private char _facingDirection = 'R';
 
-        // --- Physics & Movement Variables ---
+        // --- Physics & Movement ---
         private Point _velocity;
         private bool _isJumping = false;
         private bool _isMovingRight = false;
@@ -42,6 +42,7 @@ namespace TralalaGame
         private int _levelWidth;
         private int _levelHeight;
         private Point _startPosition;
+        private int _groundLevelY;
 
         // --- Physics Constants ---
         private const int WalkSpeed = 6;
@@ -49,17 +50,11 @@ namespace TralalaGame
         private const int StraightJumpSpeed = 25;
         private const int RunningJumpSpeed = 22;
         private const int Gravity = 2;
-        private int _groundLevelY;
 
         public Rectangle Bounds => this.Box.Bounds;
         public Tralala(Point startPosition, List<Tile> tiles, int levelWidth, int levelHeight) : base(startPosition, new Size(PWidth, PHeight))
         {
-            var allResourceNames = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            foreach (var name in allResourceNames)
-            {
-                // This will print every available resource name to the "Output" window in Visual Studio
-                System.Diagnostics.Debug.WriteLine(name);
-            }
+            
             _spriteSheet = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.Assets.png"));
             InitializeAnimationData();
 
@@ -79,7 +74,7 @@ namespace TralalaGame
 
         public override void Draw(Graphics g, Point cameraPosition)
         {
-            // Calculate the player's position on the screen
+            //posisi player
             int screenX = this.Position.X - cameraPosition.X;
             int screenY = this.Position.Y - cameraPosition.Y;
 
@@ -90,7 +85,7 @@ namespace TralalaGame
                 PWidth,
                 PHeight
             );
-            // Draw directly onto the form's graphics at the calculated screen position
+            // ini buat gambar playernya
             g.DrawImage(
                 _spriteSheet,
                 new Rectangle(screenX, screenY, PWidth, PHeight),
@@ -99,35 +94,35 @@ namespace TralalaGame
             );
         }
 
-        // --- NEW: A single method to handle all input states ---
-        // This is called by the form on every tick BEFORE Update()
+        // 
+        // ini untuk handle input dari keyboard
         public void HandleInput(bool left, bool right, bool jump, bool run)
         {
             _isMovingLeft = left;
             _isMovingRight = right;
             _isRunning = run;
 
-            // Prevent moving in both directions at once
+            // kalau pencet A dan D bareng, stop gerak 
             if (_isMovingLeft && _isMovingRight)
             {
                 _isMovingLeft = false;
                 _isMovingRight = false;
             }
 
-            // --- MODIFIED JUMP LOGIC ---
+            // --- Jump Logic ---
             if (jump && !_isJumping)
             {
                 _isJumping = true;
 
-                // Check if the player is moving horizontally at the moment of the jump
+                // cek karakter lagi gerak kiri atau kanan
                 if (_isMovingLeft || _isMovingRight)
                 {
-                    // If they are moving, perform a running jump (lower)
+                    // kalau iya, perform larilompat (lari + lompat)
                     _velocity.Y = -RunningJumpSpeed;
                 }
                 else
                 {
-                    // If they are standing still, perform a standing jump (higher)
+                    // kalau gaada gerak, cuma penceet spaasi baru gerak. StraightJump
                     _velocity.Y = -StraightJumpSpeed;
                 }
             }
@@ -137,7 +132,7 @@ namespace TralalaGame
 
         public override void Update()
         {
-            // Apply Horizontal Velocity from input
+            // Gravitasi nih buat karakter
             _velocity.X = 0;
             if (_isMovingLeft)
             {
@@ -148,18 +143,18 @@ namespace TralalaGame
                 _velocity.X = _isRunning ? RunSpeed : WalkSpeed;
             }
 
-            // Apply Gravity
+            // Gravity
             _velocity.Y += Gravity;
 
-            // Store original position for collision testing
+            //ini buat simpen posisi awal char, buat apa? biar bisa cek collision
             Point originalPosition = this.Box.Location;
 
-            // Apply vertical movement first
+            // vertical movement
             this.Box.Top += _velocity.Y;
             bool onGround = false;
             bool hitCeiling = false;
 
-            // Check vertical collisions
+            // vertical collision
             foreach (var tile in _levelTiles)
             {
                 Rectangle playerBounds = this.Box.Bounds;
@@ -167,7 +162,8 @@ namespace TralalaGame
 
                 if (playerBounds.IntersectsWith(tileBounds))
                 {
-                    // Check if we're hitting from below (ceiling collision)
+                    // cek original postion, nih kita dari bawah tile apa dari atas (HeadBump atau landing)
+                    //ini buat head bump
                     if (_velocity.Y < 0 && originalPosition.Y >= tileBounds.Bottom)
                     {
                         this.Box.Top = tileBounds.Bottom;
@@ -175,7 +171,7 @@ namespace TralalaGame
                         hitCeiling = true;
                         break;
                     }
-                    // Check if we're landing on top of a tile
+                    // nah ini buat kalau dari atas (landing)
                     else if (_velocity.Y > 0 && (originalPosition.Y + this.Box.Height) <= tileBounds.Top)
                     {
                         this.Box.Top = tileBounds.Top - this.Box.Height;
@@ -187,7 +183,7 @@ namespace TralalaGame
                 }
             }
 
-            // Only apply horizontal movement if we didn't hit a ceiling
+            // kalau gaada collision dari atas, berarti kita bisa gerak horizontal
             if (!hitCeiling)
             {
                 this.Box.Left += _velocity.X;
@@ -200,7 +196,7 @@ namespace TralalaGame
 
                     if (playerBounds.IntersectsWith(tileBounds))
                     {
-                        // Only handle side collisions if we're not hitting from above/below
+                        // buat cek collision dari kiri atau kanan
                         if (originalPosition.Y + this.Box.Height > tileBounds.Top &&
                             originalPosition.Y < tileBounds.Bottom)
                         {
@@ -219,7 +215,7 @@ namespace TralalaGame
                 }
             }
 
-            // Level boundaries
+            // dinding windows (kanan, kiri, bawah)
             if (this.Box.Left < 0) { this.Box.Left = 0; }
             if (this.Box.Right > _levelWidth) { this.Box.Left = _levelWidth - this.Box.Width; }
             if (this.Box.Bottom > _levelHeight)
@@ -232,10 +228,10 @@ namespace TralalaGame
 
         public void Reset()
         {
-            // Reset the character's location to its starting point
+            // Reset posisi karakter (Respawn)
             this.Box.Location = _startPosition;
 
-            // Reset velocity to stop them from instantly falling again
+            // Reset semua ke awal
             _velocity = Point.Empty;
             _isJumping = false;
             _animationState = PlayerState.IdleRight;
@@ -245,14 +241,14 @@ namespace TralalaGame
         {
             PlayerState previousState = _animationState;
 
-            // Determine facing direction
+            // ngarah mana nih karakter
             if (_isMovingLeft) _facingDirection = 'L';
             if (_isMovingRight) _facingDirection = 'R';
 
-            // Determine animation state based on actions
-            if (!onGround) // Use the onGround flag to determine if airborne
+            // animation state
+            if (!onGround) // biar tau lagi di udara atau ga
             {
-                _isJumping = true; // We are in the air
+                _isJumping = true; // di uadara berarti lagi lompat
                 if (_facingDirection == 'L')
                 {
                     _animationState = (_velocity.Y < 0) ? PlayerState.JumpLeft : PlayerState.FallLeft;
@@ -275,22 +271,20 @@ namespace TralalaGame
                 _animationState = (_facingDirection == 'L') ? PlayerState.IdleLeft : PlayerState.IdleRight;
             }
 
-            // Reset frame if animation state has changed
+            // kalau state berubah, reset frame ke 0
             if (previousState != _animationState)
             {
                 _currentFrame = 0;
             }
 
-            // Advance frame
+            // kalau gaada ini, animasi ga jalan
             int totalFrames = _animationFrames[_animationState];
             _currentFrame = (_currentFrame + 1) % totalFrames;
 
             this.Box.Invalidate();
         }
 
-        // The InitializeAnimationData and PlayerPictureBox_Paint methods remain unchanged.
-        // We've removed StartMove, StopMove, SetRunning, and Jump as public methods.
-
+        // ini buat inisialisasi data animasi
         private void InitializeAnimationData()
         {
             _animationFrames = new Dictionary<PlayerState, int>
@@ -302,6 +296,7 @@ namespace TralalaGame
             };
         }
 
+        // ini buat ngegambar playernya di PictureBox biar ga pake Draw method 
         private void PlayerPictureBox_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;

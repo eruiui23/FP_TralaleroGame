@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TralalaGame
 {
-    // An abstract base class for all enemy types.
+    // Abstract class buat enemy tambahan yg laen
     public abstract class Enemy : GameObject, ICollidable
     {
         public abstract Rectangle Bounds { get; }

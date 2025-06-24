@@ -12,9 +12,9 @@ namespace TralalaGame
         public Rectangle Bounds => this.Box.Bounds;
         private static Image _spriteSheet;
 
-        private const int FRAME_WIDTH = 21;   // The width of a single frame
-        private const int FRAME_HEIGHT = 26;  // The height of a single frame
-        private const int TOTAL_FRAMES = 6;   // How many frames are in the coin's animation
+        private const int FRAME_WIDTH = 21;   // Lebar coin
+        private const int FRAME_HEIGHT = 26;  // Tinggi coin
+        private const int TOTAL_FRAMES = 6;   // Frame
         private int _currentFrame;
 
         // --- Constructor ---
@@ -25,25 +25,22 @@ namespace TralalaGame
 
             if (_spriteSheet == null)
             {
-                // IMPORTANT: Make sure you have "CoinSpriteSheet.png" in your resources.
                 _spriteSheet = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.coin.png"));
             }
-            // --- KEY CHANGE: We now handle drawing ourselves ---
-            // this.Box.Image = _sprite; // DELETE THIS LINE
-            this.Box.Paint += Collectible_Paint; // ADD THIS LINE
+          
+            this.Box.Paint += Collectible_Paint; 
             this.Box.BackColor = Color.Transparent;
         }
 
         public override void Draw(Graphics g, Point cameraPosition)
         {
-            if (this.IsCollected) return; // Don't draw if collected
+            if (this.IsCollected) return; // Kalau ke collect, dont draw
 
             int screenX = this.Position.X - cameraPosition.X;
             int screenY = this.Position.Y - cameraPosition.Y;
 
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            Rectangle sourceRect = new Rectangle(
-                _currentFrame * FRAME_WIDTH, 0, FRAME_WIDTH, FRAME_HEIGHT);
+            Rectangle sourceRect = new Rectangle(_currentFrame * FRAME_WIDTH, 0, FRAME_WIDTH, FRAME_HEIGHT);
 
             g.DrawImage(
                 _spriteSheet,
@@ -84,10 +81,10 @@ namespace TralalaGame
         // --- MODIFIED: Update method now handles animation ---
         public override void Update()
         {
-            // Advance to the next frame, looping back to 0 at the end
+            //Animation
             _currentFrame = (_currentFrame + 1) % TOTAL_FRAMES;
 
-            // Tell the PictureBox it needs to be redrawn to show the new frame
+            // Idk i forgot whaat is this, but I think ini nge refresh PictureBoxnya
             this.Box.Invalidate();
         }
     }

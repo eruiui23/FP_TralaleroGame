@@ -9,8 +9,8 @@ namespace TralalaGame
         private static Image _tileSprite;
         private const int TileWidth = 64;
         private const int TileHeight = 64;
-        private int _visibleHeight; // How much of the sprite is visible
-        private Rectangle _collisionBounds; // Separate collision rectangle
+        private int _visibleHeight; 
+        private Rectangle _collisionBounds; 
 
         public Rectangle Bounds => _collisionBounds;
 
@@ -18,7 +18,7 @@ namespace TralalaGame
         {
             _visibleHeight = visibleHeight;
 
-            // Set collision bounds to match the visible area
+            // collision bounds
             _collisionBounds = new Rectangle(
                 location.X,
                 location.Y,
@@ -36,18 +36,18 @@ namespace TralalaGame
 
         public override void Draw(Graphics g, Point cameraPosition)
         {
-            // Calculate the tile's position on the screen relative to the camera
+            // tile position
             int screenX = this.Position.X - cameraPosition.X;
             int screenY = this.Position.Y - cameraPosition.Y;
 
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
 
-            // The width of the tile platform comes from the Size property of the GameObject
+            // ada brp ssquare tile per platform objeect, nah itu direpeat. Harusnya gitu
             int tileCount = this.Size.Width / TileWidth;
 
             for (int i = 0; i < tileCount; i++)
             {
-                // The destination is now based on the calculated screen position
+                // kalau ga di repeat, tile nya ga keliatan
                 var destinationRect = new Rectangle(screenX + (i * TileWidth), screenY, TileWidth, _visibleHeight);
                 var sourceRect = new Rectangle(0, 0, TileWidth, _visibleHeight);
                 g.DrawImage(_tileSprite, destinationRect, sourceRect, GraphicsUnit.Pixel);

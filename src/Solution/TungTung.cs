@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic; // --- NEW: Add this for Dictionary
+﻿using System.Collections.Generic; 
 using System.Drawing;
-using System.Drawing.Drawing2D;   // --- NEW: Add this for InterpolationMode
+using System.Drawing.Drawing2D;   
 using System.Reflection;
 using System.Windows.Forms;
 
 namespace TralalaGame
 {
-    // --- NEW: Enum for enemy states, just like PlayerState ---
+    // --- Enum kayak player ---
     public enum EnemyState
     {
         WalkRight = 1,
@@ -18,22 +18,21 @@ namespace TralalaGame
         public override Rectangle Bounds => this.Box.Bounds;
         private static Image _spriteSheet;
 
-        // --- Movement Variables ---
+        // --- Movement ---
         private int _speed;
         private int _direction = 1;
         private int _patrolStartX;
         private int _patrolEndX;
 
-        // --- NEW: Animation Properties ---
-        private const int FRAME_WIDTH = 31; // Width of one enemy frame
-        private const int FRAME_HEIGHT = 47; // Height of one enemy frame
+        // --- NEW: Animation ---
+        private const int FRAME_WIDTH = 31; // lebar frame
+        private const int FRAME_HEIGHT = 47; // tinggi frame
         private Dictionary<EnemyState, int> _animationFrames;
         private EnemyState _animationState;
         private int _currentFrame;
 
-        // --- MODIFIED: Constructor ---
-        public TungTung(Point position, int patrolDistance)
-            : base(position, new Size(FRAME_WIDTH, FRAME_HEIGHT))
+        // --- Constructor ---
+        public TungTung(Point position, int patrolDistance) : base(position, new Size(FRAME_WIDTH, FRAME_HEIGHT))
         {
             _speed = 4;
             _patrolStartX = position.X;
@@ -41,7 +40,6 @@ namespace TralalaGame
 
             if (_spriteSheet == null)
             {
-                // IMPORTANT: Add an "EnemySpriteSheet.png" to your resources.
                 _spriteSheet = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.tungtungtung-Sheet.png"));
             }
 
@@ -49,12 +47,12 @@ namespace TralalaGame
             _animationState = EnemyState.WalkRight;
             _currentFrame = 0;
 
-            // --- KEY CHANGE: We now handle drawing ourselves ---
-            // this.Box.Image = _sprite; // DELETE THIS LINE
-            this.Box.Paint += Enemy_Paint; // ADD THIS LINE
+            //buat ngegambar di picturebox
+            this.Box.Paint += Enemy_Paint; 
             this.Box.BackColor = Color.Transparent;
         }
 
+        // biar bisa dipanggil di GameObject
         public override void Draw(Graphics g, Point cameraPosition)
         {
             int screenX = this.Position.X - cameraPosition.X;
@@ -74,24 +72,25 @@ namespace TralalaGame
                 GraphicsUnit.Pixel);
         }
 
-        // --- NEW: Method to define animation lengths ---
+        // --- method buar animasiin ---
         private void InitializeAnimationData()
         {
             _animationFrames = new Dictionary<EnemyState, int>
             {
-                { EnemyState.WalkRight, 3 }, // Assuming 4 frames for walking right
-                { EnemyState.WalkLeft, 3 }   // Assuming 4 frames for walking left
+                { EnemyState.WalkRight, 3 }, // Ada 3 fram yg jalan ke kanan
+                { EnemyState.WalkLeft, 3 }   // ada 3 frame yg jalan ke kiri
             };
         }
 
-        // --- NEW: Paint Event Handler ---
+        // --- Paint Event Handler ---
+        // Ini yang dipanggil pas PictureBox mau digambar
         private void Enemy_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
 
             Rectangle sourceRect = new Rectangle(
                 _currentFrame * FRAME_WIDTH,
-                (int)_animationState * FRAME_HEIGHT, // Use state to pick the row
+                (int)_animationState * FRAME_HEIGHT, // pkai state buat nentuin baris yg mo dipake
                 FRAME_WIDTH,
                 FRAME_HEIGHT
             );
@@ -101,46 +100,46 @@ namespace TralalaGame
             e.Graphics.DrawImage(_spriteSheet, destinationRect, sourceRect, GraphicsUnit.Pixel);
         }
 
-        // --- MODIFIED: Update method now also handles animation state ---
+        // ---Update Method ---
         public override void Update()
         {
-            // --- Movement Logic (same as before) ---
+            // --- Movement Logic ---
             this.Box.Left += _speed * _direction;
 
             if (this.Box.Left <= _patrolStartX)
             {
-                _direction = 1; // Move right
+                _direction = 1; // Ke knana
                 this.Box.Left = _patrolStartX;
             }
             else if (this.Box.Left >= _patrolEndX)
             {
-                _direction = -1; // Move left
+                _direction = -1; // ke kiri
                 this.Box.Left = _patrolEndX;
             }
 
-            // --- Animation Logic (new) ---
+            // --- Animation Logic ---
             UpdateAnimation();
         }
 
-        // --- NEW: Helper method for animation, just like in Tralala ---
+        // --- Helper method kayak di tralalaa ---
         private void UpdateAnimation()
         {
             EnemyState previousState = _animationState;
 
-            // Determine current animation state based on direction
+            //tentuin animsi dari arah geraknya
             _animationState = (_direction > 0) ? EnemyState.WalkRight : EnemyState.WalkLeft;
 
-            // If the state changed (e.g., turned around), reset the frame to the beginning
+            // kalau ganti state, reset framenya ke 0
             if (previousState != _animationState)
             {
                 _currentFrame = 0;
             }
 
-            // Advance the frame
+            // buat majuin frame animasi
             int totalFrames = _animationFrames[_animationState];
             _currentFrame = (_currentFrame + 1) % totalFrames;
 
-            // Tell the PictureBox to repaint itself
+            // Repaint PictureBox untuk update animasi
             this.Box.Invalidate();
         }
     }

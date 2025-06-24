@@ -17,13 +17,13 @@ namespace TralalaGame
         private const int PlayerInitPosY = 360;
 
         // --- Polymorphic Game Object Management ---
-        private List<GameObject> _gameObjects; // A single list for everything!
-        private Tralala _tralala; // We still keep a direct reference for input handling.
-        private List<Tile> _tiles; // Keep this for collision checking for now.
-        private List<Collectible> _collectibles;
-        private List<Enemy> _enemies;
+        private List<GameObject> _gameObjects; // List Game Object buat Polymorphism
+        private Tralala _tralala; // Buat Player Character
+        private List<Tile> _tiles; // Tiles list buat rendering & collision
+        private List<Collectible> _collectibles; // list coins
+        private List<Enemy> _enemies; // list enemies
 
-        // --- UI and Colectibles
+        // --- Coins ---
         private int _coinsCollected;
         private int _totalCoinsInLevel;
 
@@ -34,7 +34,7 @@ namespace TralalaGame
         private Label _cursorCoordsLabel;
         private long _totalFrameCount;
 
-        // --- NEW: Input state tracking belongs to the form ---
+        // --- info key pressed ---
         private bool _leftPressed = false;
         private bool _rightPressed = false;
         private bool _jumpPressed = false;
@@ -52,10 +52,10 @@ namespace TralalaGame
 
             InitializeLevel();
             InitializeTiles();
-            InitializeEnemies();      // NEW
-            InitializeCollectibles(); // NEW
-            InitializeCharacter();    // Character must be initialized AFTER tiles
-            InitializeGameObjects();  // NEW HELPER
+            InitializeEnemies();      
+            InitializeCollectibles(); 
+            InitializeCharacter();    
+            InitializeGameObjects();  
             _totalCoinsInLevel = _collectibles.Count;
             InitializeTimer();
             InitializeInput();
@@ -77,9 +77,9 @@ namespace TralalaGame
         private void InitializeTiles()
         {
             _tiles = new List<Tile>();
-            int visibleHeight = 32; // Only show top 32 pixels
+            int visibleHeight = 32; //motong biar tophalf aja yg kelihatan (spritenya kegedean jir)
 
-            // Create tiles with visible height matching collision bounds
+            // Kumpulan tiles nih
             var bottom1 = new Tile(new Point(1, 500), new Size(196, visibleHeight), visibleHeight);
             var bottom2 = new Tile(new Point(360, 500), new Size(256, visibleHeight), visibleHeight);
             var second1 = new Tile(new Point(580, 400), new Size(256, visibleHeight), visibleHeight);
@@ -88,6 +88,7 @@ namespace TralalaGame
             var fourth1 = new Tile(new Point(283, 109), new Size(200, visibleHeight), visibleHeight);
             var final = new Tile(new Point(644, 73), new Size(234, visibleHeight), visibleHeight);
 
+            // Jangan lupa di add dulu
             _tiles.Add(bottom1);
             _tiles.Add(bottom2);
             _tiles.Add(second1);
@@ -101,7 +102,7 @@ namespace TralalaGame
         }
         private void InitializeCollectibles()
         {
-            // Create and add collectibles to their own list
+            // Coin manual
             _collectibles.Add(new Collectible(new Point(600, 360)));
             _collectibles.Add(new Collectible(new Point(700, 360)));
             _collectibles.Add(new Collectible(new Point(650, 360)));
@@ -123,9 +124,9 @@ namespace TralalaGame
         }
         private void InitializeEnemies()
         {
-            // Create and add enemies to their own list
-            _enemies.Add(new TungTung(new Point(360, 452), 230)); // Patrols 250px on bottom2 tile
-            _enemies.Add(new TungTung(new Point(283, 61), 150)); // Patrols 150px on fourth1 tile
+            // Enemy manual
+            _enemies.Add(new TungTung(new Point(360, 452), 230)); // Bolak balik 230px
+            _enemies.Add(new TungTung(new Point(283, 61), 150)); // 150px
         }
         private void InitializeCharacter()
         {
@@ -133,22 +134,22 @@ namespace TralalaGame
         }
         private void InitializeGameObjects()
         {
-            // Clear the list to be safe
+            // Clear just to be safe
             _gameObjects = new List<GameObject>();
 
-            // Add all objects to the single list for easy updating
+            // masukin semua object biar gampang update & draw
             _gameObjects.AddRange(_tiles);
             _gameObjects.AddRange(_collectibles);
             _gameObjects.AddRange(_enemies);
-            _gameObjects.Add(_tralala); // Add player last so they draw on top
+            _gameObjects.Add(_tralala); // player paling terakhir biar di atas semuanya
 
-            
+
         }
         private void InitializeTimer()
         {
             gameTimer = new System.Windows.Forms.Timer
             {
-                Interval = 60  // Adjusted for a smoother ~50 FPS update rate
+                Interval = 60  //FPS IS HERE
             };
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
@@ -165,10 +166,10 @@ namespace TralalaGame
         {
             Rectangle playerBounds = _tralala.Bounds;
 
-            // Check for collision with collectibles
+            // Check Coin collilsion
             foreach (var coin in _collectibles)
             {
-                // Only check if the coin hasn't been collected yet
+                // check kalao coin belum di collect
                 if (!coin.IsCollected && playerBounds.IntersectsWith(coin.Bounds))
                 {
                     coin.OnCollected();
@@ -176,42 +177,41 @@ namespace TralalaGame
                 }
             }
 
-            // Check for collision with enemies
+            // cek collision enemy
             foreach (var enemy in _enemies)
             {
                 if (playerBounds.IntersectsWith(enemy.Bounds))
                 {
-                    // Player hit an enemy, reset their position
+                    // nge hit enemy? reset mas poke
                     _tralala.Reset();
-                    // Optional: Remove a life, play a sound, etc.
-                    break; // Exit the loop after one hit
+                    break; 
                 }
             }
 
-            // Optional: Clean up collected items from the main list to improve performance
+            //  Clean up to improve performance katanya
             _gameObjects.RemoveAll(go => go is Collectible c && c.IsCollected);
         }
         private void LoadCustomFont()
         {
-            // Create a private font collection
+            // Pixel font nih
             PrivateFontCollection pfc = new PrivateFontCollection();
 
             using (var fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.5x7 MT Pixel.ttf"))
             {
                 if (fontStream != null)
                 {
-                    // Create a buffer to read the font data
+                    // buffer buat baca font nya
                     byte[] fontdata = new byte[fontStream.Length];
                     fontStream.Read(fontdata, 0, (int)fontStream.Length);
 
-                    // Add the font to the collection
+                    // masukin font nya ke lib
                     GCHandle handle = GCHandle.Alloc(fontdata, GCHandleType.Pinned);
                     pfc.AddMemoryFont(handle.AddrOfPinnedObject(), fontdata.Length);
                     handle.Free();
                 }
             }
 
-            // Create a new Font object from the collection
+            // object font baru
             _textfont = new Font(pfc.Families[0], 16, FontStyle.Regular);
             pfc.Dispose();
         }
@@ -219,32 +219,32 @@ namespace TralalaGame
         {
             _framelabel = new TextFont
             {
-                Text = $"COINS: 0/{_totalCoinsInLevel}",     // NEW (it will be updated immediately anyway)
+                Text = $"COINS: 0/{_totalCoinsInLevel}",   
                 Location = new Point(10, 10),
                 AutoSize = true,
-                Font = _textfont,
+                Font = _textfont, // pakai font pixel
                 ForeColor = Color.White,
                 BackColor = Color.Transparent,
             };
             this.Controls.Add(_framelabel);
         }
 
-        // --- Game Loop (Now much cleaner!) ---
+        // --- Game Loop ---
         private void GameTimer_Tick(object sender, System.EventArgs e)
         {
-            // 1. Handle Input (specific to player)
+            // 1. Handle Input 
             _tralala.HandleInput(_leftPressed, _rightPressed, _jumpPressed, _shiftPressed);
 
-            // 2. Update all game objects (player, enemies, etc.)
+            // 2. Update game objects
             foreach (var gameObject in _gameObjects)
             {
                 gameObject.Update();
             }
 
-            // 3. Check for player interactions with other objects (NEW!)
+            // 3. Check player coillisons
             CheckInteractions();
 
-            // 4. Reset the jump flag
+            // 4. Reset jump 
             _jumpPressed = false;
 
             // 5. Update UI
@@ -255,19 +255,16 @@ namespace TralalaGame
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            // This method is called every time the form needs to be redrawn.
+            // Method dipanggil kalo perlu ngegambar ulang form
 
-            // 1. Call the base method (good practice).
+            // 1. panggil base method untuk inisialisasi form
             base.OnPaint(e);
 
-            // 2. The background is drawn automatically by `this.BackgroundImage`,
-            //    so we don't need to draw it here.
-
-            // 3. Loop through every single game object and tell it to draw itself.
+            // 3. buat ngegambar semua game objects
             foreach (var gameObject in _gameObjects)
             {
-                // We pass the form's graphics object to each object's Draw method.
-                // We use Point.Empty for the camera because your background is static.
+                // kita gak perlu ngecek gameObject itu Tralala atau Tile, soalnya semua class udah inherit dari GameObject
+                // pakai point.empty karena kamera kita diem
                 gameObject.Draw(e.Graphics, Point.Empty);
             }
         }
@@ -280,7 +277,7 @@ namespace TralalaGame
             if (e.KeyCode == Keys.Space)
             {
                 _jumpPressed = true;
-                e.SuppressKeyPress = true; // Prevent the default space bar action
+                e.SuppressKeyPress = true; // bikin space ga nge scroll formnya
             }
             if (e.KeyCode == Keys.ShiftKey) _shiftPressed = true;
         }
@@ -290,7 +287,6 @@ namespace TralalaGame
             if (e.KeyCode == Keys.A) _leftPressed = false;
             if (e.KeyCode == Keys.D) _rightPressed = false;
             if (e.KeyCode == Keys.ShiftKey) _shiftPressed = false;
-            // No need to handle KeyUp for Jump, as it's a single action.
         }
 
         private void UpdateCoins()
