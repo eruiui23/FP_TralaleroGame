@@ -7,6 +7,8 @@
     </Compile>
     <Compile Update="MainMenuForm.cs">
       <SubType>Form</SubType>
+    <Compile Update="TextFont.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
 </Project>

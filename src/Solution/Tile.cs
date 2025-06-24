@@ -1,68 +1,61 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using TralalaGame;
-
+using System.Windows.Forms;
 
 namespace TralalaGame
 {
-    public class Tile
+    public class Tile : GameObject, ICollidable
     {
-        public PictureBox Box { get; private set; }
-        public Rectangle Bounds => Box.Bounds;
-
-        // NEW: Store the tile image.
-        // We make it 'static' so the image is only loaded from resources once,
-        // saving memory no matter how many tiles you create.
         private static Image _tileSprite;
         private const int TileWidth = 64;
         private const int TileHeight = 64;
+        private int _visibleHeight; // How much of the sprite is visible
+        private Rectangle _collisionBounds; // Separate collision rectangle
 
-        public Tile(Point location, Size size)
+        public Rectangle Bounds => _collisionBounds;
+
+        public Tile(Point location, Size size, int visibleHeight = 32) : base(location, size)
         {
-            // NEW: Load the sprite from resources if it hasn't been loaded yet.
+            _visibleHeight = visibleHeight;
+
+            // Set collision bounds to match the visible area
+            _collisionBounds = new Rectangle(
+                location.X,
+                location.Y,
+                size.Width,
+                _visibleHeight
+            );
+
             if (_tileSprite == null)
             {
                 _tileSprite = Resource.Sand;
             }
 
-            Box = new PictureBox
-            {
-                Location = location,
-                Size = size,
-                // MODIFIED: Make the PictureBox background transparent, as we are custom drawing.
-                BackColor = Color.Blue
-            };
-
-            // NEW: We will handle the drawing ourselves in the Paint event.
-            Box.Paint += Tile_Paint;
+            this.Box.BackColor = Color.Transparent;
         }
 
-        // NEW: This method is called whenever the tile needs to be drawn.
-        private void Tile_Paint(object sender, PaintEventArgs e)
+        public override void Draw(Graphics g, Point cameraPosition)
         {
-            // Use NearestNeighbor for a sharp, pixelated look, same as the player.
-            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            // Calculate the tile's position on the screen relative to the camera
+            int screenX = this.Position.X - cameraPosition.X;
+            int screenY = this.Position.Y - cameraPosition.Y;
 
-            // Calculate how many times we need to draw the tile horizontally.
-            int tileCount = Box.Width / TileWidth;
+            g.InterpolationMode = InterpolationMode.NearestNeighbor;
 
-            // Loop and draw the tile sprite side-by-side.
+            // The width of the tile platform comes from the Size property of the GameObject
+            int tileCount = this.Size.Width / TileWidth;
+
             for (int i = 0; i < tileCount; i++)
             {
-                // Define where on the PictureBox to draw this specific tile copy.
-                var destinationRect = new Rectangle(i * TileWidth, 0, TileWidth, TileHeight);
-
-                // Define which part of the source image to draw (the whole 64x64 sprite).
-                var sourceRect = new Rectangle(0, 0, TileWidth, TileHeight);
-
-                e.Graphics.DrawImage(
-                    _tileSprite,          // The image to draw
-                    destinationRect,      // Where to draw it on the control
-                    sourceRect,           // Which part of the image to use
-                    GraphicsUnit.Pixel
-                );
+                // The destination is now based on the calculated screen position
+                var destinationRect = new Rectangle(screenX + (i * TileWidth), screenY, TileWidth, _visibleHeight);
+                var sourceRect = new Rectangle(0, 0, TileWidth, _visibleHeight);
+                g.DrawImage(_tileSprite, destinationRect, sourceRect, GraphicsUnit.Pixel);
             }
+        }
+
+        public override void Update()
+        {
         }
     }
 }
