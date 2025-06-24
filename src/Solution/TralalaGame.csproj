@@ -14,7 +14,30 @@
     <None Remove="Resources\BG.jpg" />
     <None Remove="Resources\coin.png" />
     <None Remove="Resources\ForRial.png" />
+    <None Remove="Resources\idleAnimation2\idle1.png" />
+    <None Remove="Resources\idleAnimation2\idle2.png" />
+    <None Remove="Resources\idleAnimation2\idle3.png" />
+    <None Remove="Resources\idleAnimation2\idle4.png" />
+    <None Remove="Resources\JitenshaWav.wav" />
     <None Remove="Resources\tungtungtung-Sheet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\idleAnimation2\idle1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\idleAnimation2\idle2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\idleAnimation2\idle3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\idleAnimation2\idle4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\JitenshaWav.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
