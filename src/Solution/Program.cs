@@ -11,7 +11,7 @@ namespace TralalaGame
             ApplicationConfiguration.Initialize();
             Application.Run(new MainMenuForm());
 
-            Application.Run(new LevelForm());
+            //Application.Run(new LevelForm());
         }
     }
 }
