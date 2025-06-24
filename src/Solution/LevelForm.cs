@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Media;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -9,6 +10,8 @@ namespace TralalaGame
 {
     public class LevelForm : Form
     {
+        
+
         // --- Form Constants ---
         private const int PlayerInitPosX = 100;
         private const int PlayerInitPosY = 360;
@@ -39,6 +42,7 @@ namespace TralalaGame
 
         public LevelForm()
         {
+            
             _collectibles = new List<Collectible>();
             _enemies = new List<Enemy>();
             _coinsCollected = 0;
@@ -67,6 +71,7 @@ namespace TralalaGame
             this.BackgroundImage = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.BG.jpg")); // Set the image
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.DoubleBuffered = true;
+            
         }
 
         private void InitializeTiles()

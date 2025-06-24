@@ -14,6 +14,7 @@
     <None Remove="Resources\BG.jpg" />
     <None Remove="Resources\coin.png" />
     <None Remove="Resources\ForRial.png" />
+    <None Remove="Resources\HummingWordWav.wav" />
     <None Remove="Resources\idleAnimation2\idle1.png" />
     <None Remove="Resources\idleAnimation2\idle2.png" />
     <None Remove="Resources\idleAnimation2\idle3.png" />
@@ -23,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\HummingWordWav.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\idleAnimation2\idle1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

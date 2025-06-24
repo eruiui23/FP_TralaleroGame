@@ -24,6 +24,8 @@ namespace TralalaGame
         int currentFrame = 0;
 
         SoundPlayer MainMenuPlayer = new SoundPlayer("Resources/JitenshaWav.wav");
+        SoundPlayer LevelPlayer = new SoundPlayer("Resources/HummingWordWav.wav");
+
         public MainMenuForm()
         {
             InitializeComponent();
@@ -70,16 +72,21 @@ namespace TralalaGame
         }
         private void btnMulai_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LevelForm levelForm = new LevelForm();
-            levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
-            {
-                this.Show();
-                MainMenuPlayer.PlayLooping();
-            };
+            MasukLevel();
+            //MainMenuPlayer.Stop();
+            //LevelPlayer.PlayLooping();
+            //this.Hide();
+            //LevelForm levelForm = new LevelForm();
+           
 
-            levelForm.Show();
-            MainMenuPlayer.Stop();
+            //levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
+            //{
+            //    this.Show();
+            //    MainMenuPlayer.PlayLooping();
+            //};
+
+            //levelForm.Show();
+            
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
@@ -109,18 +116,20 @@ namespace TralalaGame
             lbCounter.Text = seconds--.ToString();
             if (seconds < 0)
             {
-                timer1.Stop();
-                textSeconds.Enabled = true;
-                this.Hide();
-                LevelForm levelForm = new LevelForm();
-                levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
-                {
-                    this.Show();
-                    MainMenuPlayer.PlayLooping();
-                };
-                levelForm.Show();
-                MainMenuPlayer.Stop();
+                MasukLevel();
                 stopModeTimer();
+                //this.Hide();
+                //LevelForm levelForm = new LevelForm();
+                //levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
+                //{
+                //    this.Show();
+                //    MainMenuPlayer.PlayLooping();
+                //};
+                //levelForm.Show();
+                //MainMenuPlayer.Stop();
+                //stopModeTimer();
+
+
 
             }
         }
@@ -158,6 +167,25 @@ namespace TralalaGame
             btnMulai.Visible = true;
             btnKeluar.Visible = true;
             btnTimer.Visible = true;
+        }
+
+        private void MasukLevel()
+        {
+            timer1.Stop();
+            textSeconds.Enabled = true;
+            MainMenuPlayer.Stop();
+            LevelPlayer.PlayLooping();
+            this.Hide();
+            LevelForm levelForm = new LevelForm();
+
+
+            levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
+            {
+                this.Show();
+                MainMenuPlayer.PlayLooping();
+            };
+
+            levelForm.Show();
         }
     }
 }
