@@ -24,7 +24,7 @@ namespace TralalaGame
         private int _patrolStartX;
         private int _patrolEndX;
 
-        // --- NEW: Animation ---
+        // --- Animation ---
         private const int FRAME_WIDTH = 31; // lebar frame
         private const int FRAME_HEIGHT = 47; // tinggi frame
         private Dictionary<EnemyState, int> _animationFrames;

@@ -42,7 +42,6 @@ namespace TralalaGame
         private int _levelWidth;
         private int _levelHeight;
         private Point _startPosition;
-        private int _groundLevelY;
 
         // --- Physics Constants ---
         private const int WalkSpeed = 6;
@@ -58,11 +57,10 @@ namespace TralalaGame
             _spriteSheet = Image.FromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("TralalaGame.Resources.Assets.png"));
             InitializeAnimationData();
 
-            _levelTiles = tiles; // NEW: Store the tiles
+            _levelTiles = tiles; // Store the tiles
             _animationState = PlayerState.IdleRight;
             _currentFrame = 0;
             _velocity = Point.Empty;
-            _groundLevelY = 600; // Keep the initial ground level
 
             this.Box.Paint += PlayerPictureBox_Paint;
             _levelWidth = levelWidth;
@@ -94,7 +92,6 @@ namespace TralalaGame
             );
         }
 
-        // 
         // ini untuk handle input dari keyboard
         public void HandleInput(bool left, bool right, bool jump, bool run)
         {
@@ -186,7 +183,7 @@ namespace TralalaGame
             // kalau gaada collision dari atas, berarti kita bisa gerak horizontal
             if (!hitCeiling)
             {
-                this.Box.Left += _velocity.X;
+                this.Box.Left += _velocity.X; // Horizontal speed
 
                 // Check horizontal collisions
                 foreach (var tile in _levelTiles)
@@ -280,7 +277,6 @@ namespace TralalaGame
             // kalau gaada ini, animasi ga jalan
             int totalFrames = _animationFrames[_animationState];
             _currentFrame = (_currentFrame + 1) % totalFrames;
-
             this.Box.Invalidate();
         }
 
@@ -296,16 +292,18 @@ namespace TralalaGame
             };
         }
 
-        // ini buat ngegambar playernya di PictureBox biar ga pake Draw method 
+        // ini buat ngegambar playernya di PictureBox 
         private void PlayerPictureBox_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            //Cut dari spritesheet sesuai frame dan state animasi
             Rectangle sourceRect = new Rectangle(
                 _currentFrame * PWidth,
                 (int)_animationState * PHeight,
                 PWidth,
                 PHeight
             );
+            // Gambar playernya yg udah di cut di PictureBox
             Rectangle destinationRect = new Rectangle(0, 0, PWidth, PHeight);
             e.Graphics.DrawImage(
                 _spriteSheet,

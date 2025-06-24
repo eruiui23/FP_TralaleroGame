@@ -31,8 +31,6 @@ namespace TralalaGame
         private System.Windows.Forms.Timer gameTimer;
         private TextFont _framelabel;
         private Font _textfont;
-        private Label _cursorCoordsLabel;
-        private long _totalFrameCount;
 
         // --- info key pressed ---
         private bool _leftPressed = false;
