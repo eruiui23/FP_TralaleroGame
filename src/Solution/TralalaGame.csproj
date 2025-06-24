@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\AprilStoryWav.wav" />
     <None Remove="Resources\idleAnimation2\idle1.png" />
     <None Remove="Resources\idleAnimation2\idle2.png" />
     <None Remove="Resources\idleAnimation2\idle3.png" />
@@ -17,6 +18,7 @@
     <None Remove="Resources\idleAnimation\idle2.png" />
     <None Remove="Resources\idleAnimation\idle3.png" />
     <None Remove="Resources\idleAnimation\idle4.png" />
+    <None Remove="Resources\JitenshaWav.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +44,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\idleAnimation\idle4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\JitenshaWav.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
