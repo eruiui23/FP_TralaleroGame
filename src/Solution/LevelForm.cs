@@ -38,6 +38,8 @@ namespace TralalaGame
         private bool _jumpPressed = false;
         private bool _shiftPressed = false;
 
+        private Label _winLabel;
+
         public LevelForm()
         {
             
@@ -225,6 +227,19 @@ namespace TralalaGame
                 BackColor = Color.Transparent,
             };
             this.Controls.Add(_framelabel);
+
+            _winLabel = new Label
+            {
+                Text = "YOU WIN!",
+                Font = new Font(_textfont.FontFamily, 32, FontStyle.Bold),
+                ForeColor = Color.Yellow,
+                BackColor = Color.Transparent,
+                AutoSize = true,
+                Location = new Point((this.ClientSize.Width / 2) - 100, this.ClientSize.Height / 2),
+                Visible = false // awalnya tidak terlihat
+            };
+            this.Controls.Add(_winLabel);
+
         }
 
         // --- Game Loop ---
@@ -247,6 +262,8 @@ namespace TralalaGame
 
             // 5. Update UI
             UpdateCoins();
+
+            WinScreen();
 
             this.Invalidate();
         }
@@ -278,6 +295,15 @@ namespace TralalaGame
                 e.SuppressKeyPress = true; // bikin space ga nge scroll formnya
             }
             if (e.KeyCode == Keys.ShiftKey) _shiftPressed = true;
+        }
+
+        private void WinScreen()
+        {
+            if (_coinsCollected == 15)
+            {
+                _winLabel.Visible = true;
+                gameTimer.Stop(); // opsional: hentikan game
+            }
         }
 
         private void LevelForm_KeyUp(object sender, KeyEventArgs e)
