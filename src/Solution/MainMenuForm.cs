@@ -59,7 +59,7 @@ namespace TralalaGame
             this.Controls.Add(picShark);
 
             // Timer animasi
-            animTimer.Interval = 750; // ubah frame setiap 150ms
+            animTimer.Interval = 750; // ubah frame setiap tiap ... ms
             animTimer.Tick += AnimTimer_Tick;
             animTimer.Start();
         }
@@ -73,20 +73,6 @@ namespace TralalaGame
         private void btnMulai_Click(object sender, EventArgs e)
         {
             MasukLevel();
-            //MainMenuPlayer.Stop();
-            //LevelPlayer.PlayLooping();
-            //this.Hide();
-            //LevelForm levelForm = new LevelForm();
-           
-
-            //levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
-            //{
-            //    this.Show();
-            //    MainMenuPlayer.PlayLooping();
-            //};
-
-            //levelForm.Show();
-            
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
@@ -118,19 +104,6 @@ namespace TralalaGame
             {
                 MasukLevel();
                 stopModeTimer();
-                //this.Hide();
-                //LevelForm levelForm = new LevelForm();
-                //levelForm.FormClosed += (s, args) => // buka menu pas game di tutup
-                //{
-                //    this.Show();
-                //    MainMenuPlayer.PlayLooping();
-                //};
-                //levelForm.Show();
-                //MainMenuPlayer.Stop();
-                //stopModeTimer();
-
-
-
             }
         }
 
