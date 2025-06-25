@@ -12,27 +12,27 @@ namespace TralalaGame
     {
         
 
-        // --- Form Constants ---
+        // Form Constant
         private const int PlayerInitPosX = 100;
         private const int PlayerInitPosY = 360;
 
-        // --- Polymorphic Game Object Management ---
+        // Polymorphic Game Object Management 
         private List<GameObject> _gameObjects; // List Game Object buat Polymorphism
         private Tralala _tralala; // Buat Player Character
         private List<Tile> _tiles; // Tiles list buat rendering & collision
         private List<Collectible> _collectibles; // list coins
         private List<Enemy> _enemies; // list enemies
 
-        // --- Coins ---
+        //  Coin
         private int _coinsCollected;
         private int _totalCoinsInLevel;
 
-        // --- Class Variables ---
+        // Variable class
         private System.Windows.Forms.Timer gameTimer;
         private TextFont _framelabel;
         private Font _textfont;
 
-        // --- info key pressed ---
+        // info key pressed
         private bool _leftPressed = false;
         private bool _rightPressed = false;
         private bool _jumpPressed = false;

@@ -15,7 +15,7 @@ namespace TralalaGame
 {
     public partial class MainMenuForm : Form
     {
-        int seconds;
+        int seconds; 
 
 
         PictureBox picShark = new PictureBox();
@@ -31,14 +31,9 @@ namespace TralalaGame
             InitializeComponent();
 
             // ngeset timer diawal ga keliatan
-            lbCounter.Visible = false;
-            textSeconds.Visible = false;
-            btnStart.Visible = false;
-            secondLabel.Visible = false;
-            btnTimerKembali.Visible = false;
-            counterBg.Visible = false;
-            textSecondBg.Visible = false;
+            TimerHide();
 
+            // Muter lagu
             MainMenuPlayer.PlayLooping();
 
 
@@ -50,9 +45,10 @@ namespace TralalaGame
                 Image.FromFile("Resources/idleAnimation2/idle3.png"),
                 Image.FromFile("Resources/idleAnimation2/idle4.png"),
             };
+
             // Atur PictureBox untuk hiu
             picShark.Size = new Size(638, 338);
-            picShark.Location = new Point(380, 200); // posisi bebas sesuai background
+            picShark.Location = new Point(380, 200); 
             picShark.BackColor = Color.Transparent;
             picShark.Image = sharkFrames[0];
             picShark.SizeMode = PictureBoxSizeMode.Normal;
@@ -83,17 +79,7 @@ namespace TralalaGame
 
         private void btnTimer_Click(object sender, EventArgs e)
         {
-            lbCounter.Visible = true;
-            textSeconds.Visible = true;
-            btnStart.Visible = true;
-            secondLabel.Visible = true;
-            btnTimerKembali.Visible = true;
-            counterBg.Visible = true;
-            textSecondBg.Visible = true;
-
-            btnMulai.Visible = false;
-            btnKeluar.Visible = false;
-            btnTimer.Visible = false;
+            TimerShow();
         }
 
 
@@ -129,17 +115,7 @@ namespace TralalaGame
             textSeconds.Enabled = true;
             lbCounter.Text = "Timer";
 
-            lbCounter.Visible = false;
-            textSeconds.Visible = false;
-            btnStart.Visible = false;
-            secondLabel.Visible = false;
-            btnTimerKembali.Visible = false;
-            counterBg.Visible = false;
-            textSecondBg.Visible = false;
-
-            btnMulai.Visible = true;
-            btnKeluar.Visible = true;
-            btnTimer.Visible = true;
+            TimerHide();
         }
 
         private void MasukLevel()
@@ -160,5 +136,37 @@ namespace TralalaGame
 
             levelForm.Show();
         }
+
+        private void TimerHide()
+        {
+            lbCounter.Visible = false;
+            textSeconds.Visible = false;
+            btnStart.Visible = false;
+            secondLabel.Visible = false;
+            btnTimerKembali.Visible = false;
+            counterBg.Visible = false;
+            textSecondBg.Visible = false;
+
+            btnMulai.Visible = true;
+            btnKeluar.Visible = true;
+            btnTimer.Visible = true;
+        }
+
+        private void TimerShow()
+        {
+            lbCounter.Visible = true;
+            textSeconds.Visible = true;
+            btnStart.Visible = true;
+            secondLabel.Visible = true;
+            btnTimerKembali.Visible = true;
+            counterBg.Visible = true;
+            textSecondBg.Visible = true;
+
+            btnMulai.Visible = false;
+            btnKeluar.Visible = false;
+            btnTimer.Visible = false;
+        }
+
+
     }
 }
