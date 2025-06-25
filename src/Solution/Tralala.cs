@@ -23,7 +23,7 @@ namespace TralalaGame
 
     public class Tralala : GameObject, ICollidable
     {
-        // --- Sprite & Animation ---
+        // Sprite & Animation 
         private const int PWidth = 58;
         private const int PHeight = 40;
         private Image _spriteSheet;
@@ -32,7 +32,7 @@ namespace TralalaGame
         private PlayerState _animationState;
         private char _facingDirection = 'R';
 
-        // --- Physics & Movement ---
+        // Physics & Movement 
         private Point _velocity;
         private bool _isJumping = false;
         private bool _isMovingRight = false;
@@ -43,7 +43,7 @@ namespace TralalaGame
         private int _levelHeight;
         private Point _startPosition;
 
-        // --- Physics Constants ---
+        // Physics Constants 
         private const int WalkSpeed = 6;
         private const int RunSpeed = 10;
         private const int StraightJumpSpeed = 25;
@@ -106,7 +106,7 @@ namespace TralalaGame
                 _isMovingRight = false;
             }
 
-            // --- Jump Logic ---
+            // Jump Logic 
             if (jump && !_isJumping)
             {
                 _isJumping = true;

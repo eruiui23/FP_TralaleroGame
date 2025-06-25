@@ -23,6 +23,7 @@ namespace TralalaGame
         Image[] sharkFrames;
         int currentFrame = 0;
 
+        // player musik
         SoundPlayer MainMenuPlayer = new SoundPlayer("Resources/JitenshaWav.wav");
         SoundPlayer LevelPlayer = new SoundPlayer("Resources/HummingWordWav.wav");
 
@@ -61,7 +62,7 @@ namespace TralalaGame
         }
 
 
-        private void AnimTimer_Tick(object sender, EventArgs e)
+        private void AnimTimer_Tick(object sender, EventArgs e) 
         {
             currentFrame = (currentFrame + 1) % sharkFrames.Length;
             picShark.Image = sharkFrames[currentFrame];

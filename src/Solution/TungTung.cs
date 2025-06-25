@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace TralalaGame
 {
-    // --- Enum kayak player ---
+    // Enum kayak player 
     public enum EnemyState
     {
         WalkRight = 1,
@@ -18,20 +18,20 @@ namespace TralalaGame
         public override Rectangle Bounds => this.Box.Bounds;
         private static Image _spriteSheet;
 
-        // --- Movement ---
+        // Movement 
         private int _speed;
         private int _direction = 1;
         private int _patrolStartX;
         private int _patrolEndX;
 
-        // --- Animation ---
+        // Animation 
         private const int FRAME_WIDTH = 31; // lebar frame
         private const int FRAME_HEIGHT = 47; // tinggi frame
         private Dictionary<EnemyState, int> _animationFrames;
         private EnemyState _animationState;
         private int _currentFrame;
 
-        // --- Constructor ---
+        // Constructor 
         public TungTung(Point position, int patrolDistance) : base(position, new Size(FRAME_WIDTH, FRAME_HEIGHT))
         {
             _speed = 4;
@@ -72,7 +72,7 @@ namespace TralalaGame
                 GraphicsUnit.Pixel);
         }
 
-        // --- method buar animasiin ---
+        // method buar animasiin 
         private void InitializeAnimationData()
         {
             _animationFrames = new Dictionary<EnemyState, int>
@@ -82,7 +82,7 @@ namespace TralalaGame
             };
         }
 
-        // --- Paint Event Handler ---
+        //  Paint Event Handler 
         // Ini yang dipanggil pas PictureBox mau digambar
         private void Enemy_Paint(object sender, PaintEventArgs e)
         {
@@ -100,10 +100,10 @@ namespace TralalaGame
             e.Graphics.DrawImage(_spriteSheet, destinationRect, sourceRect, GraphicsUnit.Pixel);
         }
 
-        // ---Update Method ---
+        // Update Method
         public override void Update()
         {
-            // --- Movement Logic ---
+            // Movement Logic
             this.Box.Left += _speed * _direction;
 
             if (this.Box.Left <= _patrolStartX)
@@ -117,11 +117,11 @@ namespace TralalaGame
                 this.Box.Left = _patrolEndX;
             }
 
-            // --- Animation Logic ---
+            // Animation Logic
             UpdateAnimation();
         }
 
-        // --- Helper method kayak di tralalaa ---
+        // Helper method kayak di tralalaa 
         private void UpdateAnimation()
         {
             EnemyState previousState = _animationState;

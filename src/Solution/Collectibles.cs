@@ -7,7 +7,7 @@ namespace TralalaGame
 {
     public class Collectible : GameObject, ICollidable
     {
-        // --- Properties ---
+        // Properties 
         public bool IsCollected { get; private set; }
         public Rectangle Bounds => this.Box.Bounds;
         private static Image _spriteSheet;
@@ -17,7 +17,7 @@ namespace TralalaGame
         private const int TOTAL_FRAMES = 6;   // Frame
         private int _currentFrame;
 
-        // --- Constructor ---
+        // Constructor 
         public Collectible(Point position) : base(position, new Size(FRAME_WIDTH, FRAME_HEIGHT))
         {
             IsCollected = false;
@@ -50,7 +50,7 @@ namespace TralalaGame
             );
         }
 
-        // --- NEW: Paint Event Handler ---
+        // NEW: Paint Event Handler 
         private void Collectible_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
@@ -78,7 +78,7 @@ namespace TralalaGame
             this.Box.Visible = false;
         }
 
-        // --- MODIFIED: Update method now handles animation ---
+        // MODIFIED: Update method now handles animation 
         public override void Update()
         {
             //Animation

@@ -5,17 +5,17 @@ namespace TralalaGame
 {
     public abstract class GameObject
     {
-        // --- Common Properties ---
+        // Common Properties 
         // Semua gameobject punya PioctureBox 
         public PictureBox Box { get; protected set; }
         public Point Position { get => Box.Location; set => Box.Location = value; }
         public Size Size { get => Box.Size; set => Box.Size = value; }
 
-        // --- Abstract Methods  ---
+        // Abstract Methods  
         // Update buat game object
         public abstract void Update();
 
-        // --- Virtual Methods ---
+        // Virtual Methods 
         //buat di override di class turunan
         public virtual void Draw(Graphics g, Point cameraPosition)
         {

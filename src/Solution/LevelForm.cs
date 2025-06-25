@@ -132,7 +132,7 @@ namespace TralalaGame
         }
         private void InitializeGameObjects()
         {
-            // Clear just to be safe
+            
             _gameObjects = new List<GameObject>();
 
             // masukin semua object biar gampang update & draw
@@ -147,7 +147,7 @@ namespace TralalaGame
         {
             gameTimer = new System.Windows.Forms.Timer
             {
-                Interval = 60  //FPS IS HERE
+                Interval = 60  // fps
             };
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
